@@ -1,0 +1,326 @@
+/* ---------- Colores y estilos generales ---------- */
+
+:root {
+    color-scheme: dark;
+
+    --fondo: #0b1120;
+    --superficie: #151f32;
+    --superficie-hover: #1c2a42;
+    --texto: #edf2fa;
+    --texto-secundario: #b4c1d6;
+    --acento: #69ead3;
+    --acento-oscuro: #092a27;
+    --borde: #34435e;
+    --error: #ffb4b4;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    background:
+        radial-gradient(
+            ellipse at top,
+            #17394a 0%,
+            transparent 55%
+        ),
+        var(--fondo);
+    color: var(--texto);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1rem;
+    line-height: 1.65;
+}
+
+header,
+main,
+footer {
+    width: min(100% - 2rem, 900px);
+    margin-inline: auto;
+}
+
+h1,
+h2,
+h3,
+h4,
+p {
+    margin-top: 0;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    line-height: 1.3;
+}
+
+/* ---------- Cabecera ---------- */
+
+header {
+    padding-block: 4.5rem 2.5rem;
+}
+
+header > p:first-child {
+    margin-bottom: 1rem;
+    color: var(--acento);
+    font-size: 0.8rem;
+    font-weight: bold;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+}
+
+h1 {
+    max-width: 800px;
+    margin-bottom: 1.25rem;
+    font-size: clamp(2rem, 6vw, 3.7rem);
+    letter-spacing: -0.04em;
+}
+
+header > p:last-child {
+    max-width: 650px;
+    margin-bottom: 0;
+    color: var(--texto-secundario);
+    font-size: 1.1rem;
+}
+
+/* ---------- Instrucciones ---------- */
+
+main > section {
+    margin-bottom: 2rem;
+    padding: 1.75rem;
+    border: 1px solid var(--borde);
+    border-radius: 16px;
+    background: var(--superficie);
+}
+
+h2 {
+    font-size: 1.5rem;
+}
+
+ul {
+    margin-bottom: 0;
+    padding-left: 1.25rem;
+    color: var(--texto-secundario);
+}
+
+li + li {
+    margin-top: 0.4rem;
+}
+
+li::marker {
+    color: var(--acento);
+}
+
+/* ---------- Preguntas ---------- */
+
+form {
+    margin-bottom: 2rem;
+}
+
+.pregunta {
+    min-width: 0;
+    margin: 0 0 1.75rem;
+    padding: 1.5rem;
+    border: 1px solid var(--borde);
+    border-radius: 16px;
+    background: var(--superficie);
+}
+
+.pregunta legend {
+    max-width: 100%;
+    padding-inline: 0.6rem;
+    color: var(--texto);
+    font-size: 1.05rem;
+    font-weight: bold;
+    overflow-wrap: anywhere;
+}
+
+/* ---------- Opciones ---------- */
+
+.opcion {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.85rem;
+    margin-top: 0.8rem;
+    padding: 1rem;
+    border: 1px solid var(--borde);
+    border-radius: 10px;
+    background: var(--fondo);
+    cursor: pointer;
+    transition:
+        background-color 0.2s,
+        border-color 0.2s;
+}
+
+.opcion:hover {
+    border-color: var(--acento);
+    background: var(--superficie-hover);
+}
+
+.opcion:focus-within {
+    outline: 2px solid var(--acento);
+    outline-offset: 3px;
+}
+
+.opcion input[type="radio"] {
+    flex-shrink: 0;
+    width: 1.15rem;
+    height: 1.15rem;
+    margin: 0.25rem 0 0;
+    accent-color: var(--acento);
+    cursor: pointer;
+}
+
+.opcion span {
+    overflow-wrap: anywhere;
+}
+
+.opcion input:checked + span {
+    color: var(--acento);
+    font-weight: bold;
+}
+
+/* ---------- Botones y enlaces ---------- */
+
+button,
+.boton {
+    display: inline-block;
+    padding: 0.95rem 1.5rem;
+    border: 2px solid transparent;
+    border-radius: 10px;
+    background: var(--acento);
+    color: var(--acento-oscuro);
+    font: inherit;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    transition:
+        background-color 0.2s,
+        transform 0.2s;
+}
+
+button:hover,
+.boton:hover {
+    background: #a3f5e6;
+    transform: translateY(-2px);
+}
+
+button:focus-visible,
+.boton:focus-visible {
+    outline: 3px solid var(--texto);
+    outline-offset: 4px;
+}
+
+form > button {
+    width: 100%;
+}
+
+/* ---------- Resultados ---------- */
+
+.resultado {
+    border-top: 4px solid var(--acento);
+}
+
+.nota {
+    margin-block: 1rem;
+    color: var(--acento);
+    font-size: clamp(2rem, 7vw, 3.5rem);
+    font-weight: bold;
+    line-height: 1.2;
+}
+
+.resultado h3 {
+    margin-top: 2rem;
+    font-size: 1.25rem;
+}
+
+.revision {
+    margin-bottom: 1rem;
+    padding: 1.25rem;
+    border: 1px solid var(--borde);
+    border-left: 4px solid var(--error);
+    border-radius: 10px;
+    background: var(--fondo);
+}
+
+.revision h4 {
+    margin-bottom: 1rem;
+    font-size: 1rem;
+}
+
+.revision p {
+    color: var(--texto-secundario);
+}
+
+.revision .respuesta-correcta {
+    margin-bottom: 0;
+    color: var(--acento);
+    font-weight: bold;
+}
+
+.resultado .boton {
+    margin-top: 1rem;
+}
+
+/* ---------- Mensajes de error ---------- */
+
+[role="alert"] {
+    padding: 1rem 1.25rem;
+    border: 1px solid var(--error);
+    border-radius: 10px;
+    background: #321e2a;
+    color: var(--error);
+}
+
+/* ---------- Pie ---------- */
+
+footer {
+    padding-block: 1.5rem 2.5rem;
+    color: var(--texto-secundario);
+    font-size: 0.85rem;
+    text-align: center;
+}
+
+footer p {
+    margin-bottom: 0;
+}
+
+/* ---------- Pantallas pequeñas ---------- */
+
+@media (max-width: 600px) {
+    header {
+        padding-top: 3rem;
+    }
+
+    main > section,
+    .pregunta {
+        padding: 1.1rem;
+    }
+
+    .opcion {
+        gap: 0.65rem;
+        padding: 0.85rem;
+    }
+
+    .resultado .boton {
+        width: 100%;
+    }
+}
+
+/* ---------- Movimiento reducido ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+    button,
+    .boton,
+    .opcion {
+        transition: none;
+    }
+
+    button:hover,
+    .boton:hover {
+        transform: none;
+    }
+}
